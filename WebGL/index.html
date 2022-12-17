@@ -17,7 +17,7 @@
         </div>
       </div>
       <div id="unity-warning"></div>
-      <input type="checkbox" id="show-checkbox" />
+      <input type="checkbox" onchange="f1(this.value)" />
     </div>
     <script>
       var container = document.querySelector("#unity-container");
@@ -95,21 +95,24 @@
           .then((unityInstance) => {
             loadingBar.style.display = "none";
             instance = unityInstance;
-            console.log(instance);
           })
           .catch((message) => {
             alert(message);
           });
-        console.log(instance);
       };
 
-      console.log(instance);
-      if (instance != undefined) {
-        console.log(instance);
-        instance.SendMessage("Main Camera", "ctrl", "0");
-      }
-
       document.body.appendChild(script);
+
+      var current = false;
+
+      function f1(value) {
+        current = !current;
+        if (current) {
+          instance.SendMessage("Main Camera", "ctrl", "1");
+        } else {
+          instance.SendMessage("Main Camera", "ctrl", "0");
+        }
+      }
     </script>
   </body>
 </html>
