@@ -9,8 +9,8 @@ root.render(
       id="test"
       title="test"
       width={900}
-      height={600}
-      src="https://embedcellmembranetutorial.web.app/"
+      height={460}
+      src="http://127.0.0.1:8080/"
     />
   </React.StrictMode>
 );
